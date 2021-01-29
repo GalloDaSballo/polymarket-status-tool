@@ -25,3 +25,6 @@ export const MATIC_URLS = [
 
 export const POLYMARKET_MATIC_URL =
   "https://rpc-mainnet.maticvigil.com/v1/10b14f0a4554047ec93e2b109f00c1428dde00f2";
+
+export const BLOCKVIGIL_URL =
+  "https://rpc-mainnet.maticvigil.com/v1/ea1bb94329e5fa87489704c1141745bdab51f1b0";
