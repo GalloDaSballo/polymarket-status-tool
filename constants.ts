@@ -28,3 +28,15 @@ export const POLYMARKET_MATIC_URL =
 
 export const BLOCKVIGIL_URL =
   "https://rpc-mainnet.maticvigil.com/v1/ea1bb94329e5fa87489704c1141745bdab51f1b0";
+
+export const CONDITIONAL_TOKENS_ADDRESS =
+  "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"; // conditionalTokens - line 74
+
+export const USDC_ADDRESS = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; // maticUsdc - line 68
+
+export const CONDITION_ID = "0x5e5f58ddde1b47aaa40a916f59c5afd785c7fb19";
+export const OUTCOME_SLOT_COUNT = 2;
+export const AMOUNT = 3;
+
+export const PROXY_WALLET_FACTORY_ADDRESS =
+  "0xaB45c5A4B0c941a2F231C04C3f49182e1A254052";

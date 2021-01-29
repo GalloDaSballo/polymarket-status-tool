@@ -13,6 +13,8 @@ import {
   getRelayerBalance,
   getRelayerData,
 } from "./helpers/ethers";
+import { subgraph } from "./helpers/subgraph";
+
 dotenv.config();
 
 const main = async (): Promise<void> => {
@@ -72,7 +74,9 @@ const main = async (): Promise<void> => {
 
   const blockSigilData = await getBlockSigilData();
 
-  // output
+  subgraph(maticProvider); // WIP
+
+  // output -> api data
   const data = {
     mainnet: mainnetData,
     matic: maticData,
@@ -84,5 +88,4 @@ const main = async (): Promise<void> => {
 };
 
 main();
-
 setInterval(main, 10 * 60 * 1000); //every 10 mins
