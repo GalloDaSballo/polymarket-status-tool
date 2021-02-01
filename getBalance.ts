@@ -71,8 +71,7 @@ const main = async (): Promise<void> => {
 
   // output
   const data = { mainnet: mainnetData, matic: maticData };
-  console.log(data.mainnet);
-  console.log(data.matic);
+  console.log(JSON.stringify(data));
 };
-
+main()
 setInterval(main, 10 * 60 * 1000); //every 10 mins
