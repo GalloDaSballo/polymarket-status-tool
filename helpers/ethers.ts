@@ -1,10 +1,5 @@
 import { ethers } from "ethers";
-import {
-  RELAY_HUB_ABI,
-  RELAY_HUB_ADD,
-  OUR_RECIPIENT_ADD,
-  POLYMARKET_MAINNET_URL,
-} from "../constants";
+import { RELAY_HUB_ABI, RELAY_HUB_ADD, OUR_RECIPIENT_ADD } from "../constants";
 
 import axios from "axios";
 

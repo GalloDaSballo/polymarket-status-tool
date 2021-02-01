@@ -34,9 +34,10 @@ export const CONDITIONAL_TOKENS_ADDRESS =
 
 export const USDC_ADDRESS = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; // maticUsdc - line 68
 
-export const CONDITION_ID = "0x5e5f58ddde1b47aaa40a916f59c5afd785c7fb19";
-export const OUTCOME_SLOT_COUNT = 2;
-export const AMOUNT = 3;
+export const CONDITION_ID =
+  "0xa3d1b46ac7ebfaf90925fddf1b8eb5d2e6ac074acbae28b927a96519c19d12a0";
+export const OUTCOME_SLOT_COUNT = 3;
+export const AMOUNT = 1;
 
 export const PROXY_WALLET_FACTORY_ADDRESS =
   "0xaB45c5A4B0c941a2F231C04C3f49182e1A254052";

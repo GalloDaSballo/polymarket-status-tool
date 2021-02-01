@@ -3,7 +3,7 @@ import proxyWalletFactoryABI from "../abi/ProxyWalletFactory.json";
 
 import { PROXY_WALLET_FACTORY_ADDRESS } from "../constants";
 
-const getProxyWalletFactory = (provider: any): any => {
+const getProxyWalletFactory = (provider: any): Contract => {
   const { WALLET_PK } = process.env;
 
   if (!WALLET_PK) {

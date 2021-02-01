@@ -14,7 +14,7 @@ import getProxyWalletFactory from "./proxyWalletFactory";
 export const subgraph = async (provider: any) => {
   const proxyWalletFactory = getProxyWalletFactory(provider);
 
-  proxyWalletFactory.proxy([
+  await proxyWalletFactory.proxy([
     splitPosition(
       CONDITIONAL_TOKENS_ADDRESS,
       USDC_ADDRESS,

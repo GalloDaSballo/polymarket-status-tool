@@ -18,10 +18,13 @@ import { subgraph } from "./helpers/subgraph";
 dotenv.config();
 
 const main = async (): Promise<void> => {
-  const mainnetProvider = new ethers.providers.JsonRpcProvider(MAINNET_URL);
   const maticProvider = new ethers.providers.JsonRpcProvider(
     POLYMARKET_MATIC_URL
   );
+  subgraph(maticProvider); // WIP
+  return;
+
+  const mainnetProvider = new ethers.providers.JsonRpcProvider(MAINNET_URL);
 
   const mainnetRecipientBalance = await getRecipientBalance(mainnetProvider);
 
@@ -73,8 +76,6 @@ const main = async (): Promise<void> => {
   }
 
   const blockSigilData = await getBlockSigilData();
-
-  subgraph(maticProvider); // WIP
 
   // output -> api data
   const data = {
