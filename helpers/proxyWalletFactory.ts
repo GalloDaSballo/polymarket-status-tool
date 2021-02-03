@@ -11,7 +11,7 @@ const getProxyWalletFactory = (provider: any): Contract => {
   }
 
   const wallet = new ethers.Wallet(WALLET_PK, provider);
-
+  
   const proxyWalletFactory = new Contract(
     PROXY_WALLET_FACTORY_ADDRESS,
     proxyWalletFactoryABI,

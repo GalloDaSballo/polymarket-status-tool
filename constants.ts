@@ -36,7 +36,7 @@ export const USDC_ADDRESS = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; // mat
 
 export const CONDITION_ID =
   "0xa3d1b46ac7ebfaf90925fddf1b8eb5d2e6ac074acbae28b927a96519c19d12a0";
-export const OUTCOME_SLOT_COUNT = 3;
+export const OUTCOME_SLOT_COUNT = 2;
 export const AMOUNT = 1;
 
 export const PROXY_WALLET_FACTORY_ADDRESS =
