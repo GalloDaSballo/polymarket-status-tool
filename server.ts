@@ -3,7 +3,7 @@ import express from 'express'
 import cors from "cors"
 import getBalance from "./getBalance"
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
  
 app.use(cors())
 
