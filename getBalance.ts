@@ -13,7 +13,7 @@ import {
   getRelayerBalance,
   getRelayerData,
 } from "./helpers/ethers";
-import { subgraph } from "./helpers/subgraph";
+import { testSubgraph } from "./helpers/subgraph";
 
 dotenv.config();
 
@@ -21,8 +21,7 @@ const main = async (): Promise<void> => {
   const maticProvider = new ethers.providers.JsonRpcProvider(
     POLYMARKET_MATIC_URL
   );
-  subgraph(maticProvider); // WIP
-  return;
+  const subgraphData = await testSubgraph(maticProvider); // WIP
 
   const mainnetProvider = new ethers.providers.JsonRpcProvider(MAINNET_URL);
 
@@ -82,10 +81,9 @@ const main = async (): Promise<void> => {
     mainnet: mainnetData,
     matic: maticData,
     blockVigil: blockVigilData,
+    subgraph: subgraphData
   };
-  console.log(data.mainnet);
-  console.log(data.matic);
-  console.log(data.blockVigil);
+  console.log("data", data)
 };
 
 main();
