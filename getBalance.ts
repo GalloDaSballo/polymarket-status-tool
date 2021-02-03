@@ -7,18 +7,24 @@ import {
   POLYMARKET_MAINNET_ADDRES,
   POLYMARKET_MATIC_URL,
 } from "./constants";
+import { getBlockSigilData } from "./helpers/blockvigil";
 import {
   getRecipientBalance,
   getRelayerBalance,
   getRelayerData,
 } from "./helpers/ethers";
+import { subgraph } from "./helpers/subgraph";
+
 dotenv.config();
 
 const main = async (): Promise<void> => {
-  const mainnetProvider = new ethers.providers.JsonRpcProvider(MAINNET_URL);
   const maticProvider = new ethers.providers.JsonRpcProvider(
     POLYMARKET_MATIC_URL
   );
+  subgraph(maticProvider); // WIP
+  return;
+
+  const mainnetProvider = new ethers.providers.JsonRpcProvider(MAINNET_URL);
 
   const mainnetRecipientBalance = await getRecipientBalance(mainnetProvider);
 
@@ -69,9 +75,18 @@ const main = async (): Promise<void> => {
     maticData.relayers.push(relayerData);
   }
 
-  // output
-  const data = { mainnet: mainnetData, matic: maticData };
-  console.log(JSON.stringify(data));
+  const blockSigilData = await getBlockSigilData();
+
+  // output -> api data
+  const data = {
+    mainnet: mainnetData,
+    matic: maticData,
+    blockSigil: blockSigilData,
+  };
+  console.log(data.mainnet);
+  console.log(data.matic);
+  console.log(data.blockSigil);
 };
-main()
+
+main();
 setInterval(main, 10 * 60 * 1000); //every 10 mins

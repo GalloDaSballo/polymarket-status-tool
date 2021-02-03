@@ -18,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@polymarket/sdk": "^3.2.0",
     "@types/axios": "^0.14.0",
     "@types/node": "^14.14.22",
     "axios": "^0.21.0",
