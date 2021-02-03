@@ -35,12 +35,12 @@ export const testSubgraph = async (provider: any) => {
 
     return {
       status: 200,
-      lastUpdate: new Date(),
+      lastUpdated: new Date(),
     }
   } catch(err) {
     return {
       status: 500,
-      lastUpdate: new Date(),
+      lastUpdated: new Date(),
       message: err.message
     }
   }
