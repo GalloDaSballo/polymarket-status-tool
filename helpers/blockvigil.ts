@@ -1,9 +1,9 @@
 import axios from "axios";
-import { BLOCKVIGIL_URL } from "../constants";
+import { BLOCKVIGIL_RPC } from "../constants";
 
 export const getBlockVigilData = async (): Promise<any> => {
   try {
-    const res1 = await axios.post(BLOCKVIGIL_URL, {
+    const res1 = await axios.post(BLOCKVIGIL_RPC, {
       jsonrpc: "2.0",
       method: "eth_blockNumber",
       params: [],
@@ -14,7 +14,7 @@ export const getBlockVigilData = async (): Promise<any> => {
       throw new Error("Block number was not returned");
     }
 
-    const res2 = await axios.post(BLOCKVIGIL_URL, {
+    const res2 = await axios.post(BLOCKVIGIL_RPC, {
       jsonrpc: "2.0",
       method: "eth_getBlockByNumber",
       params: [res1.data.result, true],

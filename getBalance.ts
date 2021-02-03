@@ -1,11 +1,12 @@
 import dotenv from "dotenv";
 import { ethers } from "ethers";
 import {
-  MAINNET_URL,
+  MAINNET_RPC,
   POLYMARKET_MAINNET_URL,
   MATIC_URLS,
   POLYMARKET_MAINNET_ADDRES,
-  POLYMARKET_MATIC_URL,
+  MATIC_RPC,
+  OUR_RECIPIENT_ADD
 } from "./constants";
 import { getBlockVigilData } from "./helpers/blockvigil";
 import {
@@ -19,15 +20,15 @@ dotenv.config();
 
 const getBalance = async (): Promise<any> => {
   const maticProvider = new ethers.providers.JsonRpcProvider(
-    POLYMARKET_MATIC_URL
+    MATIC_RPC
   );
   const subgraphData = await testSubgraph(maticProvider); // WIP
 
-  const mainnetProvider = new ethers.providers.JsonRpcProvider(MAINNET_URL);
+  const mainnetProvider = new ethers.providers.JsonRpcProvider(MAINNET_RPC);
 
   const mainnetRecipientBalance = await getRecipientBalance(mainnetProvider);
 
-  const gsnBalance = await getRelayerBalance(
+  const relayerBalance = await getRelayerBalance(
     mainnetProvider,
     POLYMARKET_MAINNET_ADDRES
   );
@@ -35,12 +36,12 @@ const getBalance = async (): Promise<any> => {
 
   const mainnetData = {
     recipientBalance: mainnetRecipientBalance,
-    address: MAINNET_URL,
+    address: OUR_RECIPIENT_ADD,
     relayers: [
       {
-        balance: gsnBalance,
+        balance: relayerBalance,
         isReady: relayer.isReady,
-        address: POLYMARKET_MAINNET_ADDRES,
+        address: relayer.address,
       },
     ],
   };
@@ -50,7 +51,7 @@ const getBalance = async (): Promise<any> => {
 
   const maticData: any = {
     recipientBalance: maticRecipientBalance,
-    address: POLYMARKET_MATIC_URL,
+    address: OUR_RECIPIENT_ADD,
     relayers: [],
   };
 
@@ -81,7 +82,8 @@ const getBalance = async (): Promise<any> => {
     mainnet: mainnetData,
     matic: maticData,
     blockVigil: blockVigilData,
-    subgraph: subgraphData
+    subgraph: subgraphData,
+    lastUpdated: new Date()
   };
   console.log("data", data)
 

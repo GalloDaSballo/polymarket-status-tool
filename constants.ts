@@ -11,7 +11,7 @@ export const POLYMARKET_MAINNET_ADDRES =
 
 export const OUR_RECIPIENT_ADD = "0xaB45c5A4B0c941a2F231C04C3f49182e1A254052"; //Address of our GSN recipient
 
-export const MAINNET_URL =
+export const MAINNET_RPC =
   "https://mainnet.infura.io/v3/f918fe7effbf468e84c043b6c54c89d8";
 
 export const POLYMARKET_MAINNET_URL =
@@ -23,10 +23,10 @@ export const MATIC_URLS = [
   "https://matic-gsn3.polymarket.io/getaddr",
 ];
 
-export const POLYMARKET_MATIC_URL =
+export const MATIC_RPC =
   "https://rpc-mainnet.maticvigil.com/v1/10b14f0a4554047ec93e2b109f00c1428dde00f2";
 
-export const BLOCKVIGIL_URL =
+export const BLOCKVIGIL_RPC =
   "https://rpc-mainnet.maticvigil.com/v1/ea1bb94329e5fa87489704c1141745bdab51f1b0";
 
 export const CONDITIONAL_TOKENS_ADDRESS =
