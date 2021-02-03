@@ -44,16 +44,13 @@ const getBalance = async (): Promise<any> => {
         address: relayer.address,
       },
     ],
+    lastUpdated: new Date()
   };
 
   const relayers = [];
   const maticRecipientBalance = await getRecipientBalance(maticProvider);
 
-  const maticData: any = {
-    recipientBalance: maticRecipientBalance,
-    address: OUR_RECIPIENT_ADD,
-    relayers: [],
-  };
+
 
   for (let url of MATIC_URLS) {
     const relayer = await getRelayerData(url);
@@ -72,8 +69,14 @@ const getBalance = async (): Promise<any> => {
       address: relayers[i].address,
     };
 
-    maticData.relayers.push(relayerData);
   }
+  
+  const maticData: any = {
+    recipientBalance: maticRecipientBalance,
+    address: OUR_RECIPIENT_ADD,
+    relayers: relayers,
+    lastUpdated: new Date()
+  };
 
   const blockVigilData = await getBlockVigilData();
 
