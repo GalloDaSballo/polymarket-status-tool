@@ -48,6 +48,7 @@ const getBalance = async (): Promise<any> => {
   };
 
   const relayers = [];
+  const maticRelayers = [];
   const maticRecipientBalance = await getRecipientBalance(maticProvider);
 
 
@@ -69,12 +70,13 @@ const getBalance = async (): Promise<any> => {
       address: relayers[i].address,
     };
 
+    maticRelayers.push(relayerData);
   }
-  
+
   const maticData: any = {
     recipientBalance: maticRecipientBalance,
     address: OUR_RECIPIENT_ADD,
-    relayers: relayers,
+    relayers: maticRelayers,
     lastUpdated: new Date()
   };
 
