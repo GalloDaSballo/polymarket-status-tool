@@ -1,7 +1,7 @@
 import axios from "axios";
 import { BLOCKVIGIL_URL } from "../constants";
 
-export const getBlockSigilData = async (): Promise<any> => {
+export const getBlockVigilData = async (): Promise<any> => {
   try {
     const res1 = await axios.post(BLOCKVIGIL_URL, {
       jsonrpc: "2.0",
@@ -27,12 +27,12 @@ export const getBlockSigilData = async (): Promise<any> => {
       throw new Error("Timestamp was not returned");
     }
 
-    const blockSigilData = {
+    const blockVigilData = {
       status: res1.status,
       lastBlock: new Date(timestamp * 1000),
     };
 
-    return blockSigilData;
+    return blockVigilData;
   } catch (err) {
     console.log("BLOCK VIGIL REQUEST FAILED", err.response.data);
   }

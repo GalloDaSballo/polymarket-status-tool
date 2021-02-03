@@ -7,7 +7,7 @@ import {
   POLYMARKET_MAINNET_ADDRES,
   POLYMARKET_MATIC_URL,
 } from "./constants";
-import { getBlockSigilData } from "./helpers/blockvigil";
+import { getBlockVigilData } from "./helpers/blockvigil";
 import {
   getRecipientBalance,
   getRelayerBalance,
@@ -75,17 +75,17 @@ const main = async (): Promise<void> => {
     maticData.relayers.push(relayerData);
   }
 
-  const blockSigilData = await getBlockSigilData();
+  const blockVigilData = await getBlockVigilData();
 
   // output -> api data
   const data = {
     mainnet: mainnetData,
     matic: maticData,
-    blockSigil: blockSigilData,
+    blockVigil: blockVigilData,
   };
   console.log(data.mainnet);
   console.log(data.matic);
-  console.log(data.blockSigil);
+  console.log(data.blockVigil);
 };
 
 main();
