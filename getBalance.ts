@@ -17,7 +17,7 @@ import { testSubgraph } from "./helpers/subgraph";
 
 dotenv.config();
 
-const main = async (): Promise<void> => {
+const getBalance = async (): Promise<any> => {
   const maticProvider = new ethers.providers.JsonRpcProvider(
     POLYMARKET_MATIC_URL
   );
@@ -84,7 +84,8 @@ const main = async (): Promise<void> => {
     subgraph: subgraphData
   };
   console.log("data", data)
+
+  return data;
 };
 
-main();
-setInterval(main, 10 * 60 * 1000); //every 10 mins
+export default getBalance;
