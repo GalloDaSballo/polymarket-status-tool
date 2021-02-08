@@ -29,7 +29,7 @@ export const getBlockVigilData = async (): Promise<any> => {
 
     const blockVigilData = {
       status: res1.status,
-      block: res1.data.result,
+      block: parseInt(res1.data.result, 10),
       lastUpdated: new Date(timestamp * 1000),
     };
 
