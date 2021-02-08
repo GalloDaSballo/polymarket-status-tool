@@ -36,7 +36,7 @@ export const testSubgraph = async (provider: any) => {
     const { indexingStatusesForSubgraphName } = await request(SUBGRAPH_STATUS_URL, query)
 
     graphHealth = {
-      block: indexingStatusesForSubgraphName[0].chains[0].latestBlock.number,
+      block: Number(indexingStatusesForSubgraphName[0].chains[0].latestBlock.number),
       health: indexingStatusesForSubgraphName[0].health,
       synced: indexingStatusesForSubgraphName[0].synced
     }
