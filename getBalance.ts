@@ -14,7 +14,6 @@ import {
   getRelayerBalance,
   getRelayerData,
 } from "./helpers/ethers";
-import { testSubgraph } from "./helpers/subgraph";
 
 dotenv.config();
 
@@ -22,7 +21,6 @@ const getBalance = async (): Promise<any> => {
   const maticProvider = new ethers.providers.JsonRpcProvider(
     MATIC_RPC
   );
-  const subgraphData = await testSubgraph(maticProvider); // WIP
 
   const mainnetProvider = new ethers.providers.JsonRpcProvider(MAINNET_RPC);
 
@@ -87,7 +85,6 @@ const getBalance = async (): Promise<any> => {
     mainnet: mainnetData,
     matic: maticData,
     blockVigil: blockVigilData,
-    subgraph: subgraphData,
     lastUpdated: new Date()
   };
   console.log("data", data)

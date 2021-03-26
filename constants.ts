@@ -6,10 +6,6 @@ export const RELAY_HUB_ABI = [
   "function balanceOf(address target) external view returns (uint256)",
 ];
 
-
-export const SUBGRAPH_STATUS_URL = "http://35.160.238.58:8030/graphql"
-export const SUBGRAPH_URL = "https://subgraph-matic.poly.market/subgraphs/name/TokenUnion/polymarket/graphql"
-
 export const POLYMARKET_MAINNET_ADDRES =
   "0x64ff2d76fe3095fb9f0a18c088b345ffd2bf8e85";
 
