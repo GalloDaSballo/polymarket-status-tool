@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node dist/server",
     "build": "tsc",
-    "dev": "nodemon server.ts"
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED='0' nodemon server.ts"
   },
   "keywords": [],
   "author": "",

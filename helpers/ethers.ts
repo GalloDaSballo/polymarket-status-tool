@@ -62,3 +62,26 @@ export const getRelayerData = async (url: string): Promise<Relayer> => {
     throw new Error("Error fetching relayer data" + err);
   }
 };
+
+/**
+ * Fetches the relayer
+ * @returns Relayer
+ */
+ export const getV2RelayerData = async (url: string): Promise<Relayer> => {
+  try {
+    const res = await axios({
+      method: "POST",
+      url,
+    });
+
+    const relayer = {
+      address: res.data?.RelayServerAddress,
+      isReady: res.data?.Ready,
+    };
+
+    return relayer;
+  } catch (err) {
+    throw new Error("Error fetching relayer data" + err);
+  }
+};
+

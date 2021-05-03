@@ -4,6 +4,7 @@ import {
   MAINNET_RPC,
   POLYMARKET_MAINNET_URL,
   MATIC_URLS,
+  MATICV2_URLS,
   POLYMARKET_MAINNET_ADDRES,
   MATIC_RPC,
   OUR_RECIPIENT_ADD
@@ -13,6 +14,7 @@ import {
   getRecipientBalance,
   getRelayerBalance,
   getRelayerData,
+  getV2RelayerData,
 } from "./helpers/ethers";
 
 dotenv.config();
@@ -46,7 +48,9 @@ const getBalance = async (): Promise<any> => {
   };
 
   const relayers = [];
+  const v2Relayers = [];
   const maticRelayers = [];
+  const maticV2Relayers = [];
   const maticRecipientBalance = await getRecipientBalance(maticProvider);
 
 
@@ -71,13 +75,34 @@ const getBalance = async (): Promise<any> => {
     maticRelayers.push(relayerData);
   }
 
-  const maticData: any = {
-    recipientBalance: maticRecipientBalance,
-    address: OUR_RECIPIENT_ADD,
-    relayers: maticRelayers,
-    lastUpdated: new Date()
+
+
+  for (let url of MATICV2_URLS) {
+    const v2Relayer = await getV2RelayerData(url);
+    v2Relayers.push(v2Relayer);
   };
 
+  for (let i = 0; i < v2Relayers.length; i++) {
+    const gsnV2Balance = await getRelayerBalance(
+      maticProvider,
+      v2Relayers[i].address
+    );
+    const v2RelayerData: any = {
+      balance: gsnV2Balance,
+      isReady: v2Relayers[i].isReady,
+      address: v2Relayers[i].address,
+    };
+
+    maticV2Relayers.push(v2RelayerData);
+    };
+
+    const maticData: any = {
+      recipientBalance: maticRecipientBalance,
+      address: OUR_RECIPIENT_ADD,
+      relayers: maticRelayers,
+      v2Relayers: maticV2Relayers,
+      lastUpdated: new Date()
+    };
   const blockVigilData = await getBlockVigilData();
 
   // output -> api data

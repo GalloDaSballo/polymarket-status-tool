@@ -11,9 +11,10 @@ const CACHE_TTL_MINS: number = parseInt(process.env.CACHE_TTL_MINS as string, 1)
 const CACHE_TTL = 1000 * 60 * CACHE_TTL_MINS; // In ms
 
 const client = redis.createClient({
+ 
   url:
     process.env.REDIS_URL ||
-    "rediss://:p0c631fa0af670015f8f7fb4a3340f591268da1b08da0f9a8dc38dbe64bb06ddc@ec2-18-235-245-213.compute-1.amazonaws.com:9659",
+    "rediss://:pfd845cacdc6b8464db9533999d877ad94815c55f26d803385abcd11138307dec@ec2-54-156-115-115.compute-1.amazonaws.com:17219",
 });
 client.on("error", (error: Error) => {
   console.error(error);

@@ -22,6 +22,12 @@ export const MATIC_URLS = [
   "https://matic-gsn2.polymarket.io/getaddr",
   "https://matic-gsn3.polymarket.io/getaddr",
 ];
+export const MATICV2_URLS = [
+  "https://matic-gsn-1.herokuapp.com/relay-info",
+  "https://matic-gsn-2.herokuapp.com/relay-info",
+  "https://matic-gsn-3.herokuapp.com/relay-info",
+
+];
 
 export const MATIC_RPC =
   "https://rpc-mainnet.maticvigil.com/v1/10b14f0a4554047ec93e2b109f00c1428dde00f2";
