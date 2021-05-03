@@ -5,7 +5,7 @@ import redis from "redis";
 import getBalance from "./getBalance"
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8000
 const CACHE_TTL_MINS: number = parseInt(process.env.CACHE_TTL_MINS as string, 1) || 1; // default to 1 minute
 
 const CACHE_TTL = 1000 * 60 * CACHE_TTL_MINS; // In ms
